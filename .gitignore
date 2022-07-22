@@ -1,3 +1,6 @@
+data/
+config.toml
+
 # Logs
 logs
 *.log

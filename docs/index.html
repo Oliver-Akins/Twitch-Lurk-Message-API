@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lurk Message Manager</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="./script.js" defer></script>
+</head>
+<body>
+	<div id="app">
+		<div v-if="!authenticated" id="login">
+			<h2>Login</h2>
+			<label for="username">Username</label>
+			<input id="username" type="text" v-model="login.username">
+			<label for="password">Password</label>
+			<input id="password" type="password" v-model="login.password">
+			<button
+				@click.stop="tryLogin"
+			>
+				Login
+			</button>
+		</div>
+		<div v-cloak v-else>
+			<div id="header">
+				<label for="channel-selector">
+					Select Channel
+				</label>
+				<select
+					name="channel selector"
+					id="channel-selector"
+					v-model="channel"
+					@change="getMessages"
+				>
+					<option value="" selected disabled>Select a Channel</option>
+					<option
+						v-for="channel in channels"
+						:key="channel"
+						:value="channel"
+					>
+						{{channel}}
+					</option>
+				</select>
+				<button
+					:disabled="new_group"
+					@click.stop="addGroup"
+				>
+					Add Message Group
+				</button>
+			</div>
+			<hr>
+			<div class="body">
+				<div
+					v-for="(group, i) in messages"
+					:key="group.id"
+					class="lurk-group"
+				>
+					<div class="flex-container">
+						<h3 style="flex-grow: 1;">Message Group {{i + 1}}</h3>
+						<button
+							v-if="group.id != 'new-group'"
+							@click.stop="deleteGroup(group)"
+						>
+							Delete Group
+						</button>
+						<div v-else>
+							<button
+								@click.stop="removeNewGroup"
+							>
+								Cancel
+							</button>
+							<button
+								:disabled="group.lurk.length == 0 || group.unlurk.length == 0"
+								@click.stop="saveGroup(group)"
+							>
+								Save Group
+							</button>
+						</div>
+					</div>
+					<i>Group ID: {{group.id}}</i>
+					<hr>
+					<div class="lurk-messages group-messages">
+						<h4>Lurk Messages</h4>
+						<div v-for="msg in group.lurk" class="flex-container message">
+							<div style="flex-grow: 1">{{msg}}</div>
+							<button @click.stop="deleteLurk(group, msg)">Delete Message</button>
+						</div>
+						<br>
+						<div class="flex-container">
+							<input type="text" class="message-input" v-model="group.new.lurk">
+							<button
+								:disabled="group.new.lurk.length == 0"
+								@click.stop="addLurk(group)"
+							>
+								Add Lurk Message
+							</button>
+						</div>
+					</div>
+					<hr>
+					<div class="unlurk-messages group-messages">
+						<h4>Unlurk Messages</h4>
+						<div v-for="msg in group.unlurk" class="flex-container message">
+							<div style="flex-grow: 1">{{msg}}</div>
+							<button @click.stop="deleteUnlurk(group, msg)">Delete Message</button>
+						</div>
+						<br>
+						<div class="flex-container">
+							<input type="text" class="message-input" v-model="group.new.unlurk">
+							<button
+								:disabled="group.new.unlurk.length == 0"
+								@click.stop="addUnlurk(group)"
+							>
+								Add Unlurk Message
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+[v-cloak] {
+	display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 5px;
+}
+
+#login {
+	text-align: center;
+}
+
+#login > input {
+	margin: 5px auto;
+}
+
+.lurk-group {
+	background: #1a242f;
+	border-radius: 10px;
+	margin: 7px;
+	padding: 10px;
+}
+
+.message {
+	display: flex;
+	align-items: center;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.message-input {
+	flex-grow: 1;
+}

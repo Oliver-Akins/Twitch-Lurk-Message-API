@@ -1,0 +1,32 @@
+{
+  "name": "twitch-lurk-message-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Oliver Akins",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@hapi/basic": "^6.0.0",
+    "@hapi/boom": "^10.0.0",
+    "@hapi/hapi": "^20.2.2",
+    "glob": "^8.0.3",
+    "joi": "^17.6.0",
+    "module-alias": "^2.2.2",
+    "toml": "^3.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/hapi__basic": "^5.1.2",
+    "@types/hapi__hapi": "^20.0.12",
+    "@types/node": "^18.0.6",
+    "@types/uuid": "^8.3.4"
+  },
+  "_moduleAliases": {
+    "@": "./dist"
+  }
+}
