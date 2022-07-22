@@ -1,7 +1,7 @@
 const app = new Vue({
 	el: `#app`,
 	data() {return {
-		url: `http://localhost:4000`,
+		url: `http://143.110.218.114:42069`,
 		authenticated: false,
 		channels: [],
 		channel: ``,
