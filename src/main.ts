@@ -43,9 +43,7 @@ async function init() {
 		port: config.server.port,
 		routes: {
 			cors: {
-				origin: [
-					isDev ? `*` : `oliver.akins.me/Twitch-Lurk-Message-API/`,
-				],
+				origin: `*`,
 				credentials: true,
 			},
 		},
