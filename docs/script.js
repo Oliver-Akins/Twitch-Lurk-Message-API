@@ -6,8 +6,8 @@ const app = new Vue({
 		channels: [],
 		channel: ``,
 		login: {
-			username: `alkali`,
-			password: `metal`,
+			username: ``,
+			password: ``,
 		},
 		api: null,
 		messages: [],
