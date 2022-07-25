@@ -1,7 +1,6 @@
 import { ServerRoute } from "@hapi/hapi";
 import boom from "@hapi/boom";
 import { db } from "@/main";
-import { v4 } from "uuid";
 import Joi from "joi";
 
 const data: ServerRoute = {
