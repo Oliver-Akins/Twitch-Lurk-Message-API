@@ -9,17 +9,20 @@ const data: ServerRoute = {
 		validate: {
 			payload: Joi.object({
 				channel: Joi.string().alphanum(),
+				default_unlurk: Joi.string().min(1),
 			}),
 		},
 	},
 	async handler(request, h) {
-		const { channel } = request.params;
+		const { channel, default_unlurk } = request.payload as post_channel_payload;
 
 		if (!db[channel]) {
 			throw boom.notFound(`Invalid channel`);
 		};
 
 		db[channel].lurkers = {};
+		db[channel].unlurk_default = default_unlurk;
+		db[channel].messages = {};
 
 		return h.response().code(200);
 	},
