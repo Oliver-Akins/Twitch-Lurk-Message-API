@@ -43,7 +43,7 @@ async function init() {
 		port: config.server.port,
 		routes: {
 			cors: {
-				origin: `*`,
+				origin: [`*`],
 				credentials: true,
 			},
 		},

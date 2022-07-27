@@ -1,7 +1,7 @@
 const app = new Vue({
 	el: `#app`,
 	data() {return {
-		url: `http://143.110.218.114:42069`,
+		url: `https://vps.oliver.akins.me/lurk-api`,
 		authenticated: false,
 		channels: [],
 		channel: ``,
