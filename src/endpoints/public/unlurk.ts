@@ -27,10 +27,20 @@ const data: ServerRoute = {
 
 		const messages = db[channel].messages;
 		const messageId = db[channel].lurkers[user];
-		const message = messages[messageId];
-		let lurkMessage = message.unlurk[Math.floor(Math.random() * message.unlurk.length)];
 
-		delete db[channel].lurkers[user];
+		/*
+		Gets the default unlurk message just in case the user doesn't have a
+		message group defined.
+		*/
+		let lurkMessage;
+		if (!messageId) {
+			lurkMessage = db[channel].unlurk_default;
+		} else {
+			const message = messages[messageId];
+			lurkMessage = message.unlurk[Math.floor(Math.random() * message.unlurk.length)];
+			delete db[channel].lurkers[user];
+		};
+
 
 		let twitchMessage = formatMessage(
 			lurkMessage,
