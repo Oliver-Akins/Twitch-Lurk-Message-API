@@ -5,6 +5,7 @@ interface lurk_message {
 
 interface database {
 	[index: string]: {
+		unlurk_default: string;
 		lurkers: {[index: string]: string}
 		messages: {[index: string]: lurk_message}
 	};
