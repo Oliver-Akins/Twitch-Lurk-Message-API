@@ -73,7 +73,14 @@ async function init() {
 				};
 			};
 
-			return { isValid, credentials: { username, access: user?.access } };
+			return {
+				isValid,
+				credentials: {
+					username,
+					access: user?.access,
+					admin: user?.admin,
+				},
+			};
 		},
 	});
 	server.auth.default(`basic`);
