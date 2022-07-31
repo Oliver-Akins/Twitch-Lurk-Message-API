@@ -82,7 +82,7 @@
 							</button>
 						</div>
 					</div>
-					<i>Group ID: {{group.id}}</i>
+					<i v-if="admin">Group ID: {{group.id}}</i>
 					<hr>
 					<div class="lurk-messages group-messages">
 						<h4>Lurk Messages</h4>

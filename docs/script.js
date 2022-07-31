@@ -1,7 +1,6 @@
 const app = new Vue({
 	el: `#app`,
 	data() {return {
-		url: `https://vps.oliver.akins.me/lurk-api`,
 		authenticated: false,
 		channels: [],
 		channel: ``,
@@ -12,21 +11,22 @@ const app = new Vue({
 		api: null,
 		messages: [],
 		new_group: false,
+		admin: false,
 	}},
 	methods: {
 		async tryLogin() {
 			try {
 				let r = await axios.post(
-					`${this.url}/login`,
+					`/login`,
 					undefined,
 					{ auth: this.login }
 				);
 				this.api = axios.create({
-					baseURL: this.url,
 					validateStatus: null,
 					auth: this.login,
 				});
-				this.channels.push(...r.data.sort());
+				this.admin = r.data.admin;
+				this.channels.push(...r.data.channels.sort());
 				this.authenticated = true;
 			} catch (_) {};
 		},
