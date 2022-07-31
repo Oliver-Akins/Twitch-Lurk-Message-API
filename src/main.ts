@@ -3,6 +3,7 @@ import "module-alias/register";
 
 // Begin personal code
 import { Server, Request } from "@hapi/hapi";
+import inert from "@hapi/inert";
 import basic from "@hapi/basic";
 import path from "path";
 import glob from "glob";
@@ -42,6 +43,9 @@ async function init() {
 	const server = new Server({
 		port: config.server.port,
 		routes: {
+			files: {
+				relativeTo: path.join(__dirname, `../docs`),
+			},
 			cors: {
 				origin: [`*`],
 				credentials: true,
@@ -73,6 +77,8 @@ async function init() {
 		},
 	});
 	server.auth.default(`basic`);
+
+	await server.register(inert);
 
 	// Register all the routes
 	let files = glob.sync(

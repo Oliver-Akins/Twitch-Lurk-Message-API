@@ -4,9 +4,11 @@ specifiers:
   '@hapi/basic': ^6.0.0
   '@hapi/boom': ^10.0.0
   '@hapi/hapi': ^20.2.2
+  '@hapi/inert': ^7.0.0
   '@types/glob': ^7.2.0
   '@types/hapi__basic': ^5.1.2
   '@types/hapi__hapi': ^20.0.12
+  '@types/hapi__inert': ^5.2.3
   '@types/node': ^18.0.6
   '@types/uuid': ^8.3.4
   glob: ^8.0.3
@@ -19,6 +21,7 @@ dependencies:
   '@hapi/basic': 6.0.0
   '@hapi/boom': 10.0.0
   '@hapi/hapi': 20.2.2
+  '@hapi/inert': 7.0.0
   glob: 8.0.3
   joi: 17.6.0
   module-alias: 2.2.2
@@ -29,6 +32,7 @@ devDependencies:
   '@types/glob': 7.2.0
   '@types/hapi__basic': 5.1.2
   '@types/hapi__hapi': 20.0.12
+  '@types/hapi__inert': 5.2.3
   '@types/node': 18.0.6
   '@types/uuid': 8.3.4
 
@@ -45,6 +49,12 @@ packages:
     resolution: {integrity: sha512-FbCNwcTbnQP4VYYhLNGZmA76xb2aHg9AMPiy18NZyWMG310P5KdFGyA9v2rm5ujrIny77dEEIkMOwl0Xv+fSSA==}
     dependencies:
       '@hapi/hoek': 9.3.0
+    dev: false
+
+  /@hapi/ammo/6.0.0:
+    resolution: {integrity: sha512-lhX7SYtWScQaeAIL5XnE54WzyDgS5RXVeEtFEovyZcTdVzTYbo0nem56Bwko1PBcRxRUIw1v2tMb6sjFs6vEwg==}
+    dependencies:
+      '@hapi/hoek': 10.0.0
     dev: false
 
   /@hapi/b64/5.0.0:
@@ -75,6 +85,13 @@ packages:
     dependencies:
       '@hapi/boom': 9.1.4
       '@hapi/hoek': 9.3.0
+    dev: false
+
+  /@hapi/bounce/3.0.0:
+    resolution: {integrity: sha512-L0G4NcwwOYRhpcXeL76hNrLTUcObqtZMB3z4kcRVUZcR/w3v6C5Q1cTElV4/V7og1fG+wOyDR55UMFA+tWfhtA==}
+    dependencies:
+      '@hapi/boom': 10.0.0
+      '@hapi/hoek': 10.0.0
     dev: false
 
   /@hapi/bourne/2.1.0:
@@ -157,6 +174,17 @@ packages:
 
   /@hapi/hoek/9.3.0:
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
+
+  /@hapi/inert/7.0.0:
+    resolution: {integrity: sha512-aJvH8rKYF42YY/XZLtq5LOWyk71GRIlcqRgvRyz+XQnj2DTdSZeerUcsxV2kyzJVm9gdemVwHp00foLfKadbMg==}
+    dependencies:
+      '@hapi/ammo': 6.0.0
+      '@hapi/boom': 10.0.0
+      '@hapi/bounce': 3.0.0
+      '@hapi/hoek': 10.0.0
+      '@hapi/validate': 2.0.0
+      lru-cache: 7.13.1
+    dev: false
 
   /@hapi/iron/6.0.0:
     resolution: {integrity: sha512-zvGvWDufiTGpTJPG1Y/McN8UqWBu0k/xs/7l++HVU535NLHXsHhy54cfEMdW7EjwKfbBfM9Xy25FmTiobb7Hvw==}
@@ -246,11 +274,24 @@ packages:
     dependencies:
       '@hapi/hoek': 9.3.0
 
+  /@hapi/topo/6.0.0:
+    resolution: {integrity: sha512-aorJvN1Q1n5xrZuA50Z4X6adI6VAM2NalIVm46ALL9LUvdoqhof3JPY69jdJH8asM3PsWr2SUVYzp57EqUP41A==}
+    dependencies:
+      '@hapi/hoek': 10.0.0
+    dev: false
+
   /@hapi/validate/1.1.3:
     resolution: {integrity: sha512-/XMR0N0wjw0Twzq2pQOzPBZlDzkekGcoCtzO314BpIEsbXdYGthQUbxgkGDf4nhk1+IPDAsXqWjMohRQYO06UA==}
     dependencies:
       '@hapi/hoek': 9.3.0
       '@hapi/topo': 5.1.0
+
+  /@hapi/validate/2.0.0:
+    resolution: {integrity: sha512-w5m8MvBgqGndbMIB+AWmXTb8CLtF1DlIxbnbAHNAo7aFuNQuI1Ywc2e0zDLK5fbFXDoqRzNrHnC7JjNJ+hDigw==}
+    dependencies:
+      '@hapi/hoek': 10.0.0
+      '@hapi/topo': 6.0.0
+    dev: false
 
   /@hapi/vise/4.0.0:
     resolution: {integrity: sha512-eYyLkuUiFZTer59h+SGy7hUm+qE9p+UemePTHLlIWppEd+wExn3Df5jO04bFQTm7nleF5V8CtuYQYb+VFpZ6Sg==}
@@ -306,6 +347,12 @@ packages:
       '@types/hapi__shot': 4.1.2
       '@types/node': 18.0.6
       joi: 17.6.0
+    dev: true
+
+  /@types/hapi__inert/5.2.3:
+    resolution: {integrity: sha512-I1mWQrEc7oMqGtofT0rwBgRBCBurz0wNzbq8QZsHWR+aXM0bk1j9GA6zwyGIeO53PNl2C1c2kpXlc084xCV+Tg==}
+    dependencies:
+      '@types/hapi__hapi': 20.0.12
     dev: true
 
   /@types/hapi__mimos/4.1.4:
@@ -380,6 +427,11 @@ packages:
       '@sideway/address': 4.1.4
       '@sideway/formula': 3.0.0
       '@sideway/pinpoint': 2.0.0
+
+  /lru-cache/7.13.1:
+    resolution: {integrity: sha512-CHqbAq7NFlW3RSnoWXLJBxCWaZVBrfa9UEHId2M3AW8iEBurbqduNexEUCGc3SHc6iCYXNJCDi903LajSVAEPQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
