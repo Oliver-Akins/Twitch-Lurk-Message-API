@@ -1,5 +1,5 @@
-import { db } from "@/main";
 import { ServerRoute } from "@hapi/hapi";
+import { db } from "@/main";
 
 const data: ServerRoute = {
 	method: `POST`, path: `/login`,
