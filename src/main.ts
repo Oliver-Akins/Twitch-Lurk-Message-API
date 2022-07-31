@@ -46,10 +46,7 @@ async function init() {
 			files: {
 				relativeTo: path.join(__dirname, `../docs`),
 			},
-			cors: {
-				origin: [`*`],
-				credentials: true,
-			},
+			cors: true,
 		},
 	});
 
