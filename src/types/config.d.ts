@@ -1,6 +1,7 @@
 interface account {
 	username: string;
 	password: string;
+	admin: boolean;
 	access: string[];
 }
 

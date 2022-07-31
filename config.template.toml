@@ -10,10 +10,12 @@ port = 4000
 # accounts.
 #	username: The account's username
 #	password: The account's password
+#	admin: This is just used to show extra information on the website or not.
 #	access: An array of strings representing channel names that the account has
 #		the ability to see and modify. The only special string supported is "*"
 #		which is the equivalent of all channels within the system.
 [[accounts]]
 username = "example"
 password = "change-this-password-because-it's-incredibly-insecure-since-it's-public"
+admin = false
 access = ["*"]
