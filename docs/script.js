@@ -17,11 +17,12 @@ const app = new Vue({
 		async tryLogin() {
 			try {
 				let r = await axios.post(
-					`/login`,
+					`./login`,
 					undefined,
 					{ auth: this.login }
 				);
 				this.api = axios.create({
+					baseURL: window.location.href,
 					validateStatus: null,
 					auth: this.login,
 				});
